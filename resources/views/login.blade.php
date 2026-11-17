@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head><!-- Importar tipografía institucional desde Google Fonts -->
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso Institucional - Alcaldía San Salvador Sur</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f4f8; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f4f7fa; margin: 0; padding: 20px; }
         .login-card { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; border-top: 5px solid #003366; }
         h1 { color: #003366; text-align: center; font-size: 22px; margin-bottom: 5px; }
         p.subtitulo { text-align: center; color: #666; font-size: 14px; margin-bottom: 25px; border-bottom: 2px solid #ffcc00; padding-bottom: 10px; }
@@ -19,7 +22,7 @@
 <body>
 
 <div class="login-card">
-    <h1>🏛️ Alcaldía San Salvador Sur</h1>
+    <h1>🏛️ Alcaldía Municipal de San Salvador Sur</h1>
     <p class="subtitulo">Sistema de Soporte Técnico (TI)</p>
 
     @if(session('error'))

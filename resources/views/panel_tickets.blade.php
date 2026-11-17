@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alcaldía San Salvador Sur - Panel de TI</title>
+    <title>Alcaldía Municipal de San Salvador Sur - Panel de Soporte Técnico</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f4f8; margin: 0; padding: 20px; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f4f7fa; margin: 0; padding: 20px; }
         .container { max-width: 1100px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .header-panel { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #ffcc00; padding-bottom: 15px; margin-bottom: 25px; }
-        h1 { color: #003366; margin: 0; }
+        h1 { color: #041E42; margin: 0; }
         .btn-nuevo { background-color: #003366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 14px; }
         .btn-nuevo:hover { background-color: #002244; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }

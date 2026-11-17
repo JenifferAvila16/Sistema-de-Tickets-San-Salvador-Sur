@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head><!-- Importar tipografía institucional desde Google Fonts -->
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alcaldía San Salvador Sur - Sistema de Tickets</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f4f8; margin: 0; padding: 20px; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f4f7fa; margin: 0; padding: 20px; }
         .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        h1 { color: #003366; text-align: center; margin-bottom: 25px; border-bottom: 3px solid #ffcc00; padding-bottom: 10px; }
+        h1 { color: #041E42; text-align: center; margin-bottom: 25px; border-bottom: 3px solid #ffcc00; padding-bottom: 10px; }
         label { font-weight: bold; color: #333; display: block; margin-top: 15px; }
         input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
         textarea { height: 100px; resize: none; }
@@ -19,6 +22,19 @@
     </style>
 </head>
 <body>
+    body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f4f7fa;
+    color: #4a5568;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #041E42;
+    font-weight: 700;
+}
+</body>
 
 <div class="container">
     <div style="display: flex; justify-content: space-between; align-items: center; background: #e9ecef; padding: 10px 15px; border-radius: 4px; margin-bottom: 20px; font-size: 14px;">

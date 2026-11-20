@@ -1,55 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><!-- Importar tipografía institucional desde Google Fonts -->
-<link rel="preconnect" href="https://googleapis.com">
-<link rel="preconnect" href="https://gstatic.com" crossorigin>
-<link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alcaldía San Salvador Sur - Sistema de Tickets</title>
+<div style="text-align: center; margin-bottom: 15px;">
+    <img src="{{ asset('img/logoSSS2.jpeg') }}" alt="Logotipo oficial de la Alcaldía Municipal de San Salvador Sur, con la identificación institucional de la municipalidad sobre un fondo blanco." style="max-height: 80px; width: auto;">
+</div>
+    <title>Alcaldía Municipal de San Salvador Sur - Sistema de Tickets</title>
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f4f7fa; margin: 0; padding: 20px; }
-        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        h1 { color: #041E42; text-align: center; margin-bottom: 25px; border-bottom: 3px solid #ffcc00; padding-bottom: 10px; }
-        label { font-weight: bold; color: #333; display: block; margin-top: 15px; }
-        input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: linear-gradient(135deg, #1933a7 0%, #0d3168 100%); min-height: 100vh; color: #334155; margin: 0; padding: 20px;}
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        <div> style="text-align: center; margin-bottom: 15px;"> <img> src="{{ asset('img/logoSSS2.jpeg') }}" alt="Logotipo oficial de la Alcaldía Municipal de San Salvador Sur, con la identificación institucional de la municipalidad sobre un fondo blanco." style="max-height: 80px; width: auto;">
+</div>
+
+        h1 { color: #000060; text-align: center; margin-bottom: 10px; border-bottom: 3px solid#CAFBFF; padding-bottom: 10px; font-weight: 700; }
+        label { font-weight: 600; color: #000060; display: block; margin-top: 15px; font-size: 14px; }
+        input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-family: inherit; }
         textarea { height: 100px; resize: none; }
-        button { background-color: #003366; color: white; border: none; padding: 12px 20px; margin-top: 20px; width: 100%; border-radius: 4px; font-size: 16px; cursor: pointer; font-weight: bold; }
-        button:hover { background-color: #002244; }
-        .banner { display: none; padding: 15px; border-radius: 4px; margin-bottom: 20px; font-weight: bold; text-align: center; }
-        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        button { background-color: #000060; color: white; border: none; padding: 12px 20px; margin-top: 20px; width: 100%; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: 700; }
+        button:hover { background-color: #001BA0; }
+        .banner { padding: 15px; border-radius: 6px; margin-bottom: 20px; font-weight: 600; text-align: center; }
+        .success { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .error { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
     </style>
 </head>
 <body>
-    body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #f4f7fa;
-    color: #4a5568;
-    margin: 0;
-    padding: 20px;
-}
-
-h1, h2, h3 {
-    color: #041E42;
-    font-weight: 700;
-}
-</body>
 
 <div class="container">
-    <div style="display: flex; justify-content: space-between; align-items: center; background: #e9ecef; padding: 10px 15px; border-radius: 4px; margin-bottom: 20px; font-size: 14px;">
-    <span>👤 Conectado como: <strong>{{ session('usuario_nombre') }}</strong> ({{ session('usuario_rol') }})</span>
-    <a href="{{ route('logout') }}" style="background: #dc3545; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 12px;">🚪 Cerrar Sesión</a>
-</div>
+    @if(session('exito'))
+        <div class="banner success">{{ session('exito') }}</div>
+    @endif
 
-    <!-- Banner de Alerta Único Dinámico -->
-    <div id="alerta-sistema" class="banner"></div>
+    @if(session('error'))
+        <div class="banner error">{{ session('error') }}</div>
+    @endif
 
-    <h1> Nuevo Ticket de Soporte</h1>
+    <h1> Nuevo Ticket</h1>
     <div style="text-align: right; margin-bottom: 15px;">
-    <a href="/panel" style="color: #003366; font-weight: bold; text-decoration: none;">📋 Ver Panel de Tickets ➔</a>
-</div>
+        <a href="/panel" style="color: #041E42; font-weight: 700; text-decoration: none;">Ver Panel de Tickets ➔</a>
+    </div>
 
+    <form action="{{ route('tickets.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <label>Asunto del Problema:</label>
@@ -81,49 +73,13 @@ h1, h2, h3 {
         <label>Descripción detallada del fallo:</label>
         <textarea name="descripcion" placeholder="Describe detalladamente lo que ocurre con el equipo..." required></textarea>
 
-        <button type="submit" id="btn-enviar">Enviar Reporte a TI</button>
         <label>Evidencia / Captura de pantalla (Opcional):</label>
         <input type="file" name="archivo" accept=".jpg,.jpeg,.png,.pdf">
 
-        <button type="submit" id="btn-enviar">Enviar Reporte a TI</button>
+        <button type="submit">Enviar Ticket</button>
     </form>
 </div>
 
-<script>
-    document.getElementById('form-ticket').addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        const btn = document.getElementById('btn-enviar');
-        const alerta = document.getElementById('alerta-sistema');
-
-        btn.disabled = true;
-        btn.innerText = " Guardando en Ticket...";
-
-        try {
-            // Enviamos los datos de forma silenciosa al backend de Laravel
-            const respuesta = await fetch(this.action, {
-                method: 'POST',
-                body: new FormData(this),
-                headers: { 'X-Requested-With': 'XMLHttpRequest' }
-            });
-
-            // Mostramos el banner verde de éxito de forma inmediata
-            alerta.className = "banner success";
-            alerta.innerText = " ¡Ticket creado exitosamente!";
-            alerta.style.display = "block";
-
-            this.reset(); // Limpia los campos del formulario para el siguiente ticket
-
-        } catch (error) {
-            alerta.className = "banner error";
-            alerta.innerText = "❌ Error en el sistema: " + error.message;
-            alerta.style.display = "block";
-        } finally {
-            btn.disabled = false;
-            btn.innerText = "Enviar Reporte a TI";
-        }
-    });
-</script>
-
 </body>
 </html>
+
